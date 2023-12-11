@@ -1,0 +1,61 @@
+:root {
+    font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+}
+.topNavigation ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 10px 0 10px 0;
+    font-size: 20px;
+    background-color:  #F4F1EA;
+    list-style-type: none;
+    height: 50px;
+    width: 100%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+.activeNavLink {
+    padding: 10px;
+    background-color: rgb(64, 39, 39);
+    text-decoration: none;
+    color: white;
+}
+
+.navLink {
+    padding: 10px;
+    list-style: none;
+    text-decoration: none;
+    color: rgb(64, 39, 39);
+}
+
+.navLink:hover {
+    list-style: none;
+    padding: 10px;
+    background-color: rgb(64, 39, 39);
+    color: white;
+}
+
+.topNavigation img {
+    height: 50px;
+    width: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: rgb(64, 39, 39);
+    font-size: 17px;
+    background-color:  #F4F1EA;
+    height: 50px;
+    width: 100%;
+    box-shadow: 0px -1px rgba(0,0,0,0.15);
+}
