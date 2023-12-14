@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./HomePage.module.css";
 import portal from "./assets/bookcase-portal.jpeg";
 
@@ -7,7 +8,7 @@ const HomePage = () => {
         <main>
             <h1>Welcome to BookVerse</h1>
             <figure>
-                <a href="/books"><img src={portal} className={styles.portal} alt="Image of bookcase with portal"/></a>
+                <Link to="/books"><img src={portal} className={styles.portal} alt="Image of bookcase with portal"/></Link>
             </figure>
             <section className={styles.introHome}>
                 <p>Immerse yourself in the magical world of literature and explore a treasure trove of books based on authors, publication years, and genres.</p>

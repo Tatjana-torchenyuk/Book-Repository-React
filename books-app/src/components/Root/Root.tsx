@@ -11,9 +11,7 @@ const Root = () => {
               <NavLink className={({ isActive }) => isActive ? styles.activeNavLink : styles.navLink} to="/" >Home</NavLink>
             </li>
             <li>
-              <a href="/">
-                <img src="./assets/images/logo.png" alt="logo"/>
-              </a>
+              <NavLink to="/"><img src="./assets/images/logo.png" alt="logo"/></NavLink>
             </li>
             <li>
               <NavLink className={({ isActive }) => isActive ? styles.activeNavLink : styles.navLink} to="books">Books</NavLink>
