@@ -12,7 +12,7 @@ const Root = () => {
             </li>
             <li>
               <a href="/">
-                <img src="./logo.png" alt="logo"/>
+                <img src="./assets/images/logo.png" alt="logo"/>
               </a>
             </li>
             <li>
