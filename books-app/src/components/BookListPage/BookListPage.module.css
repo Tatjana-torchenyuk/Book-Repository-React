@@ -1,0 +1,40 @@
+.booksContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2.25rem;
+}
+
+.bookFilter {
+    width: 20%;
+}
+
+.bookList {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap; 
+}
+
+.bookList article {
+    background-color: rgb(243,243,243);
+    box-sizing: border-box;
+    justify-content: center;
+    height: 350px;
+    width: 260px;
+}
+
+.bookList figure {
+    text-align: center;
+    height: 200px;
+    width: 160px;
+}
+
+.bookList p {
+    margin: 16px 40px 16px 40px;
+    text-align: center;
+}
