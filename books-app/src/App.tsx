@@ -3,32 +3,48 @@ import Root from "./components/Root/Root";
 import HomePage from "./components/HomePage/HomePage";
 import BookListPage from "./components/BookListPage/BookListPage";
 import BookDetailPage from "./components/BookDetailPage/BookDetailPage";
+import { useEffect, useState } from "react";
+import { Book, BookRoot } from "./types";
 
 function App() {
+
+  const [book, setBook] = useState<Book[]>([]);
+
+  const loadBooks = async () => {
+    let response = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:fiction&maxResults=40&key=AIzaSyBVMDtwn5pFm22Y_GPm0scJi0pqEENSQ4A&langRestrict=en&printType=books&orderBy=newest");
+    let BookRoot: BookRoot = await response.json();
+    setBook(BookRoot.items);
+  }
+
+  useEffect(() => {
+    loadBooks();
+  }, []);
 
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root/>,
+      element: <Root />,
       children: [
         {
           path: "",
-          element: <HomePage/>
+          element: <HomePage />
         },
         {
           path: "books",
-          element: <BookListPage/>
-        }, 
+          element: <BookListPage />
+        },
         {
           path: "books/:id",
-          element: <BookDetailPage/>
+          element: <BookDetailPage />
         }
       ]
     }
   ])
 
   return (
-    <RouterProvider router={router}/>
+    <>
+    <RouterProvider router={router} />
+    </>
   );
 }
 
