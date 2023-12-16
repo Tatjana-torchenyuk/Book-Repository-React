@@ -1,8 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Root from "./components/Root/Root";
 import HomePage from "./components/HomePage/HomePage";
-import BookListPage from "./components/BookListPage/BookListPage";
-import BookDetailPage from "./components/BookDetailPage/BookDetailPage";
+import BookList from "./components/BookListPage/BookList";
+import BookDetail from "./components/BookDetailPage/BookDetail";
 import { useEffect, useState } from "react";
 import { Book, BookRoot } from "./types";
 
@@ -31,11 +31,11 @@ function App() {
         },
         {
           path: "books",
-          element: <BookListPage books={books}/>
+          element: <BookList books={books}/>
         },
         {
           path: "books/:id",
-          element: <BookDetailPage />
+          element: <BookDetail />
         }
       ]
     }

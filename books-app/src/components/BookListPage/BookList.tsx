@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { Book } from "../../types";
-import styles from "./BookListPage.module.css";
+import styles from "./BookList.module.css";
 
-interface BooksListPageProps {
+interface BooksListProps {
   books: Book[]
 }
 
-const BookListPage = ({ books }: BooksListPageProps) => {
+const BookList = ({ books }: BooksListProps) => {
 
   return (
     <main>
@@ -35,4 +35,4 @@ const BookListPage = ({ books }: BooksListPageProps) => {
   )
 }
 
-export default BookListPage;
+export default BookList;
