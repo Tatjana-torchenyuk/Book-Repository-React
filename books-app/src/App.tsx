@@ -11,7 +11,7 @@ function App() {
   const [books, setBooks] = useState<Book[]>([]);
 
   const loadBooks = async () => {
-    let response = await fetch("https://www.googleapis.com/books/v1/volumes?q=subject:fiction&maxResults=40&key=AIzaSyBVMDtwn5pFm22Y_GPm0scJi0pqEENSQ4A&langRestrict=en&printType=books&orderBy=newest");
+    let response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:fiction&maxResults=40&key=${import.meta.env.VITE_API_KEY_BOOKS}&langRestrict=en&printType=books&orderBy=newest`);
     let BookRoot: BookRoot = await response.json();
     setBooks(BookRoot.items);
   }
@@ -40,6 +40,8 @@ function App() {
       ]
     }
   ])
+
+  console.log();
 
   return (
     <>
