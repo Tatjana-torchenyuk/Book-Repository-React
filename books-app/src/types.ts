@@ -19,7 +19,8 @@ export interface BookDetail {
   pageCount: number;
   categories: string[];
   imageLinks: {
-    thumbnail: string
+    thumbnail: string;
+    medium?: string;
   }
 }
 

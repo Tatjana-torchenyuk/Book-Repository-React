@@ -1,8 +1,17 @@
-:root {
+html {
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
-    background-color: rgb(249,247,244);
-    color: rgb(51,51,51);
+    background-color: rgb(249, 247, 244);
+    color: rgb(51, 51, 51);
+    
 }
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .topNavigation ul {
     display: flex;
     flex-direction: row;
@@ -11,11 +20,11 @@
     margin: 0;
     padding: 10px 0 10px 0;
     font-size: 20px;
-    background-color:  rgb(244,241,234);
+    background-color: rgb(244, 241, 234);
     list-style-type: none;
     height: 50px;
     width: 100%;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .activeNavLink {
@@ -47,17 +56,15 @@
 }
 
 footer {
-    display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    text-align: center;
     margin: 0;
     padding-top: 10px;
     padding-bottom: 10px;
     color: rgb(64, 39, 39);
     font-size: 17px;
-    background-color: rgb(244,241,234);
+    background-color: rgb(244, 241, 234);
     height: 50px;
     width: 100%;
-    box-shadow: 0px -1px rgba(0,0,0,0.15);
+    box-shadow: 0px -1px rgba(0, 0, 0, 0.15);
 }

@@ -21,16 +21,29 @@ const BookDetail = () => {
       loadBookById(id);
     }
   }, [id]);
-  
-  console.log(currentBook?.volumeInfo?.description);
 
   if (!currentBook) {
     <p>Loading...</p>
   }
   return (
-    <main>
-      This is the detail page.
-      {currentBook?.volumeInfo?.description}
+    <main className={styles.bookContainer}>
+      <section className={styles.bookOverview}>
+        <figure>
+          <img src={currentBook?.volumeInfo?.imageLinks.medium || currentBook?.volumeInfo?.imageLinks.thumbnail} alt={currentBook?.volumeInfo?.title || 'Book Cover'} />
+        </figure>
+        <div className={styles.bookContent}>
+          <h1>{currentBook?.volumeInfo?.title}</h1>
+          <p>{currentBook?.volumeInfo?.authors}</p>
+          <p>{currentBook?.volumeInfo?.description}</p>
+        </div>
+      </section>
+      <section className={styles.bookDetails}>
+        <h2>Book Details</h2>
+        <table className={styles.productDetailTable}>
+          
+        </table>
+      </section>
+
     </main>
   )
 }
