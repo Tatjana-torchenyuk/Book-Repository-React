@@ -11,7 +11,6 @@ const BookListPage = ({ books }: BooksListPageProps) => {
   return (
     <main>
       <h1>All books</h1>
-      <p>New, interesting, and unexpected books you don't want to miss.</p>
       <section className={styles.booksContainer}>
         <div className={styles.bookFilter}>
           <h2>Filter</h2>
