@@ -42,14 +42,35 @@ const BookDetail = () => {
         </figure>
         <div className={styles.bookContent}>
           <h1>{currentBook?.volumeInfo?.title}</h1>
-          <p>{currentBook?.volumeInfo?.authors}</p>
-          <p>{currentBook?.volumeInfo?.description}</p>
+          <p>by {currentBook?.volumeInfo?.authors}</p>
+          <p className={styles.bookDescription}>{currentBook?.volumeInfo?.description}</p>
         </div>
       </section>
       <section className={styles.bookDetails}>
         <h2>Book Details</h2>
         <table className={styles.productDetailTable}>
-          
+          <tbody>
+            <tr>
+              <th>ISBN-10:</th>
+              <td>{currentBook?.volumeInfo.industryIdentifiers[0].identifier}</td>
+            </tr>
+            <tr>
+              <th>ISBN-13:</th>
+              <td>{currentBook?.volumeInfo.industryIdentifiers[1].identifier}</td>
+            </tr>
+            <tr>
+              <th>Publisher:</th>
+              <td>{currentBook?.volumeInfo.publisher}</td>
+            </tr>
+            <tr>
+              <th>Publication date:</th>
+              <td>{currentBook?.volumeInfo.publishedDate}</td>
+            </tr>
+            <tr>
+              <th>Pages:</th>
+              <td>{currentBook?.volumeInfo.pageCount}</td>
+            </tr>
+          </tbody>
         </table>
       </section>
 

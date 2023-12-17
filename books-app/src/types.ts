@@ -12,7 +12,7 @@ export interface BookDetail {
   title: string;
   authors: string[];
   publisher: string;
-  publishedDate: Date;
+  publishedDate: string;
   description: string;
   industryIdentifiers: ISBN[];
   pageCount: number;
