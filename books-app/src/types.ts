@@ -5,8 +5,7 @@ export interface BookRoot {
 
 export interface Book {
   id: string;
-  selflink?: string;
-  volumeInfo?: BookDetail;
+  volumeInfo: BookDetail;
 }
 
 export interface BookDetail {
@@ -20,7 +19,7 @@ export interface BookDetail {
   categories: string[];
   imageLinks: {
     thumbnail: string;
-    medium?: string;
+    small: string;
   }
 }
 

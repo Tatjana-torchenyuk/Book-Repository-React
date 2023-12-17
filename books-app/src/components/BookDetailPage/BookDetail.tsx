@@ -8,11 +8,20 @@ const BookDetail = () => {
   // get param from URL
   const { id } = useParams();
   const [currentBook, setCurrentBook] = useState<Book>();
+  const [imgUrl, setImgUrl] = useState<string>("");
 
   const loadBookById = async (id: string) => {
     let response = await fetch(`https://www.googleapis.com/books/v1/volumes/${id}`);
     let book: Book = await response.json();
+
     setCurrentBook(book);
+    if (book.volumeInfo.imageLinks.small) {
+      setImgUrl(book.volumeInfo.imageLinks.small.replace("http", "https"));
+    } else {
+      setImgUrl(book.volumeInfo.imageLinks.thumbnail)
+    }
+    
+
   }
   // Hook -> API call (side effect) is disconnected from the rest of our rendering code 
   // and the id must be included in the dependency array so that our callback func is called every time it changes.
@@ -29,7 +38,7 @@ const BookDetail = () => {
     <main className={styles.bookContainer}>
       <section className={styles.bookOverview}>
         <figure>
-          <img src={currentBook?.volumeInfo?.imageLinks.medium || currentBook?.volumeInfo?.imageLinks.thumbnail} alt={currentBook?.volumeInfo?.title || 'Book Cover'} />
+          <img src={imgUrl} alt={currentBook?.volumeInfo?.title || 'Book Cover'} />
         </figure>
         <div className={styles.bookContent}>
           <h1>{currentBook?.volumeInfo?.title}</h1>
