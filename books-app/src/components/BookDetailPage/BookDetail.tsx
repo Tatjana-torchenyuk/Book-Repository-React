@@ -35,7 +35,7 @@ const BookDetail = () => {
   }
 
   return (
-    <div className={styles.bookContainer}>
+    <main className={styles.bookContainer}>
       <section className={styles.bookOverview}>
         <figure>
           <img src={imgUrl} alt={currentBook?.volumeInfo?.title || 'Book Cover'} />
@@ -74,7 +74,7 @@ const BookDetail = () => {
         </table>
       </section>
 
-    </div>
+    </main>
   )
 }
 

@@ -3,7 +3,6 @@
 .booksContainer {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     max-width: 1440px;
     margin: 0 auto;
     padding: 2.25rem;
