@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import { Book } from "../../types";
 import styles from "./BookList.module.css";
+import { useContext } from "react";
+import DataContext from "../../DataContext";
 
-interface BooksListProps {
-  books: Book[]
-}
+// interface BooksListProps {
+  
+// }
 
-const BookList = ({ books }: BooksListProps) => {
+const BookList = () => {
+  const { books } = useContext(DataContext);
 
   return (
     <main>

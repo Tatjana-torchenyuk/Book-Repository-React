@@ -5,6 +5,7 @@ import BookList from "./components/BookListPage/BookList";
 import BookDetail from "./components/BookDetailPage/BookDetail";
 import { useEffect, useState } from "react";
 import { Book, BookRoot } from "./types";
+import DataContext from "./DataContext";
 
 function App() {
   // Retrieved data is kept in state.
@@ -18,8 +19,8 @@ function App() {
     // - optional parameter 'langRestrict', restricts the volumes returned to volumes in English
     // - optional parameter 'orderBy', to get the books with the latest publishedDate.
 
-    let response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:fiction&maxResults=40&key=${import.meta.env.VITE_API_KEY_BOOKS}&langRestrict=en&printType=books&orderBy=newest`);
-    let BookRoot: BookRoot = await response.json(); 
+    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:fiction&maxResults=40&key=${import.meta.env.VITE_API_KEY_BOOKS}&langRestrict=en&printType=books&orderBy=newest`);
+    const BookRoot: BookRoot = await response.json();
     setBooks(BookRoot.items);
   }
 
@@ -40,7 +41,7 @@ function App() {
         },
         {
           path: "books",
-          element: <BookList books={books}/>
+          element: <BookList/>
         },
         {
           path: "books/:id",
@@ -52,7 +53,10 @@ function App() {
 
   return (
     <>
-    <RouterProvider router={router} />
+    {/* The value of the state is passed based on the context */}
+      <DataContext.Provider value={{ books: books }}>
+        <RouterProvider router={router} />
+      </DataContext.Provider>
     </>
   );
 }
