@@ -18,8 +18,8 @@ const BookList = () => {
           <h2>Filter</h2>
         </div>
         <div className={styles.bookList}>
-          {books.map((book, index) => {
-            return <article key={index}>
+          {books.map((book) => {
+            return <article key={book.id}>
               <figure>
                 <Link to={`/books/${book.id}`}>
                   <img src={book.volumeInfo?.imageLinks.thumbnail} alt={book.volumeInfo?.title || 'Book Cover'} ></img>
