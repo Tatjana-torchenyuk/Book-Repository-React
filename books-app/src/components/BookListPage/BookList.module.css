@@ -38,13 +38,9 @@
 .bookList a {
     text-decoration: none;
     font-weight: bold;
-    color: rgb(51,51,51);
 }
 
 .bookList a:hover {
     text-decoration: underline;
 }
 
-.bookList a:visited {
-    color: rgb(51,51,51);
-}

@@ -61,3 +61,7 @@
   text-align: left;
   border: 1px solid rgb(51, 51, 51)
 }
+
+.backBtn {
+  font-weight: bolder;
+}

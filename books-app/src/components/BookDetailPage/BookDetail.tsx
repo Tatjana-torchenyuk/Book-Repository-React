@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from "./BookDetail.module.css";
 import { Book } from "../../types";
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 
 const BookDetail = () => {
@@ -35,7 +36,9 @@ const BookDetail = () => {
   }
 
   return (
-    <main className={styles.bookContainer}>
+  <>
+    { currentBook !== undefined && (<main className={styles.bookContainer}>
+
       <section className={styles.bookOverview}>
         <figure>
           <img src={imgUrl} alt={currentBook?.volumeInfo?.title || 'Book Cover'} />
@@ -73,8 +76,9 @@ const BookDetail = () => {
           </tbody>
         </table>
       </section>
-
-    </main>
+      <Link to="/books" className={styles.backBtn}>Back</Link>
+    </main>)}
+  </>    
   )
 }
 

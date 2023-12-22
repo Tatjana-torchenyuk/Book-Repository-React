@@ -13,6 +13,10 @@ main {
     min-width: 100%;
 }
 
+main a:visited {
+    color: rgb(51,51,51);
+}
+
 .topNavigation ul {
     display: flex;
     flex-direction: row;
