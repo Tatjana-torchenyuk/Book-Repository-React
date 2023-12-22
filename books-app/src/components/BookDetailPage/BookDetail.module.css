@@ -1,7 +1,8 @@
 .bookContainer {
   display: flex;
   flex-direction: column;
-  justify-content:left;
+  justify-content: center;
+  align-items: center;
   max-width: 1440px;
   margin: 50px auto;
   padding: 0;
@@ -41,6 +42,7 @@
 }
 .bookContent h1, p {
   margin: 0;
+  overflow-y:auto;
 }
 
 .bookDescription {

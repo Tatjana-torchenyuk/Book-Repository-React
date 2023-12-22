@@ -18,11 +18,10 @@ const BookDetail = () => {
     if (book.volumeInfo.imageLinks.small) {
       setImgUrl(book.volumeInfo.imageLinks.small.replace("http", "https"));
     } else {
-      setImgUrl(book.volumeInfo.imageLinks.thumbnail)
+      setImgUrl(book.volumeInfo.imageLinks.thumbnail);
     }
-    
-
   }
+
   // Hook -> API call (side effect) is disconnected from the rest of our rendering code 
   // and the id must be included in the dependency array so that our callback func is called every time it changes.
   useEffect(() => {
@@ -34,8 +33,9 @@ const BookDetail = () => {
   if (!currentBook) {
     <p>Loading...</p>
   }
+
   return (
-    <main className={styles.bookContainer}>
+    <div className={styles.bookContainer}>
       <section className={styles.bookOverview}>
         <figure>
           <img src={imgUrl} alt={currentBook?.volumeInfo?.title || 'Book Cover'} />
@@ -52,11 +52,11 @@ const BookDetail = () => {
           <tbody>
             <tr>
               <th>ISBN-10:</th>
-              <td>{currentBook?.volumeInfo.industryIdentifiers[0].identifier}</td>
+              <td>{currentBook?.volumeInfo.industryIdentifiers[0]?.identifier}</td>
             </tr>
             <tr>
               <th>ISBN-13:</th>
-              <td>{currentBook?.volumeInfo.industryIdentifiers[1].identifier}</td>
+              <td>{currentBook?.volumeInfo.industryIdentifiers[1]?.identifier ?? "no ISBN 13"}</td>
             </tr>
             <tr>
               <th>Publisher:</th>
@@ -74,7 +74,7 @@ const BookDetail = () => {
         </table>
       </section>
 
-    </main>
+    </div>
   )
 }
 
