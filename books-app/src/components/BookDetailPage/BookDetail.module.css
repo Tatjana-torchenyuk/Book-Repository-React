@@ -51,7 +51,8 @@
 .bookDetails {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  min-width: 270px;
+  max-width: 500px;
   margin: 50px 0;
 }
 .bookDetails h2 {

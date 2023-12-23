@@ -5,34 +5,27 @@
     flex-direction: row;
     max-width: 1440px;
     margin: 0 auto;
-    padding: 2.25rem;
+    padding: 3rem 1rem;
 }
 
 .bookFilter {
-    min-width: 150px;
-    width: 20%;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    min-width: auto;
+    max-width: 200px;
+    padding-right: 40px;
     text-align: left;
 }
 
 .bookList {
-    width: 80%;
     display: flex;
+    flex: auto;
     flex-direction: row;
-    align-items: flex-start;
     justify-content: space-evenly;
     flex-wrap: wrap; 
+    gap: 20px;
     border-left: 1px solid rgb(204, 204, 204);
-}
-
-.bookList article {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(243,243,243);
-    justify-content: center;
-    text-align: center;
-    align-content: center;
-    height: 350px;
-    width: 260px;
 }
 
 .bookList a {
@@ -44,3 +37,23 @@
     text-decoration: underline;
 }
 
+.bookList figure {
+    margin: 0;
+}
+.bookList article {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(243,243,243);
+    justify-content: center;
+    text-align: center;
+    overflow-wrap: break-word;
+    align-content: center;
+    height: auto;
+    width: 260px;
+
+}
+
+.bookList article div {
+    text-align: left;
+    padding: 10px;
+}

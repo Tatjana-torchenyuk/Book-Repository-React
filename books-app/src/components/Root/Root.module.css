@@ -12,6 +12,9 @@ main {
     min-height: 100vh;
     min-width: 100%;
 }
+main a {
+    color: rgb(51,51,51);
+}
 
 main a:visited {
     color: rgb(51,51,51);
