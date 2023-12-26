@@ -1,14 +1,13 @@
 import {  useState } from "react";
-import styles from "./FilterButton.module.css";
-import chevron from "./assets/chevron-down.svg";
+import styles from "./FilterSlider.module.css";
 
-interface FilterButtonProps {
+interface FilterSliderProps {
   filterCriteria: string;
-  filterValue: string; 
-  setFilterValue: (filterValue:string) => void
+  filterValue: number; 
+  setFilterValue: (filterValue:number) => void
   setFilterChoice: (filterCriteria: string) => void
 }
-const FilterButton = ({ filterCriteria, filterValue, setFilterValue, setFilterChoice }: FilterButtonProps) => {
+const FilterSlider = ({ filterCriteria, filterValue, setFilterValue, setFilterChoice }: FilterSliderProps) => {
   const [show, setShow] = useState<boolean>(false);
 
   const handleClick = () => {
@@ -16,7 +15,7 @@ const FilterButton = ({ filterCriteria, filterValue, setFilterValue, setFilterCh
     setFilterChoice(filterCriteria);
   }
   const handleOnChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-    setFilterValue(e.target.value);
+    setFilterValue(parseInt(e.target.value));
   }
   return (
     <div className={styles.container}>
@@ -24,10 +23,12 @@ const FilterButton = ({ filterCriteria, filterValue, setFilterValue, setFilterCh
         {filterCriteria}
       </button>
       <input 
-        className={show ? styles.searchFieldVisible :  styles.searchFieldHidden}
-        type="text" 
+        className={show ? styles.sliderVisible :  styles.sliderHidden}
+        type="range"
+        min="0"
+        max="10"
         value={filterValue} 
-        onChange={handleOnChange} 
+        onChange={handleOnChange}
       />
     </div>
     
@@ -35,4 +36,4 @@ const FilterButton = ({ filterCriteria, filterValue, setFilterValue, setFilterCh
   )
 }
 
-export default FilterButton;
+export default FilterSlider;

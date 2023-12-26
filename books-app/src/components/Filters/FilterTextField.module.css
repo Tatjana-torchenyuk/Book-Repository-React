@@ -15,9 +15,11 @@
   background-position: right 5px center;
 
 }
+
 .searchFieldVisible {
   display: block;
 }
+
 .searchFieldHidden {
   display: none;
 }

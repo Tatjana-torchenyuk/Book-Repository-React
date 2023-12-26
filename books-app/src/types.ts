@@ -21,6 +21,7 @@ export interface BookDetail {
     thumbnail: string;
     small: string;
   }
+  averageRating: number;
 }
 
 export interface ISBN {

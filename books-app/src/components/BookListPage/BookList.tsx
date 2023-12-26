@@ -2,23 +2,20 @@ import { Link } from "react-router-dom";
 import styles from "./BookList.module.css";
 import { useContext, useState } from "react";
 import DataContext from "../../DataContext";
-import FilterButton from "../FilterButton/FilterButton";
 import { Book } from "../../types";
-
-// interface BooksListProps {
-
-// }
+import FilterTextField from "../Filters/FilterTextField";
+import FilterSlider from "../Filters/FilterSlider";
 
 const BookList = () => {
   const { books } = useContext(DataContext);
   const [filterChoice, setFilterChoice] = useState<string>("");
   const [filterOnAuthor, setFilterOnAuthor] = useState<string>("");
   const [filterOnGenre, setFilterOnGenre] = useState<string>("");
-  const [filterOnRating, setFilterOnRating] = useState<string>("");
-  console.log(filterChoice);
+  const [filterOnRating, setFilterOnRating] = useState<number>(0);
+
   // filter books based on change in the filterOnAuthor state
   const getFilteredBooks = (books: Book[], filterType: string): Book[] => {
-    let filteredBooks: Book[] = [...books]
+    let filteredBooks: Book[] = [...books];
     switch (filterType) {
       case ("Author"):
         filteredBooks = books.filter(book => {
@@ -31,10 +28,20 @@ const BookList = () => {
         });
         break;
       case ("Genre"):
-        // todo: filter by genre
+        filteredBooks = books.filter(book => {
+          return book.volumeInfo.categories[0].toUpperCase().includes(filterOnGenre.toUpperCase());
+        });
         break;
       case ("Rating"):
-        // todo: filter by rating
+        filteredBooks = books.filter(book => {
+          if (filterOnRating !== undefined) {
+            if (book.volumeInfo.averageRating === undefined && filterOnRating === 0) {
+              return books;
+            } else if (filterOnRating > 0 || filterOnRating <= 10) {
+              return book.volumeInfo.averageRating >= filterOnRating;
+            }
+          }
+        });
         break;
     }
     return filteredBooks;
@@ -50,9 +57,9 @@ const BookList = () => {
         {/* Filters */}
         <div className={styles.bookFilter}>
           <h2>Filter</h2>
-          <FilterButton filterCriteria="Author" filterValue={filterOnAuthor} setFilterValue={setFilterOnAuthor} setFilterChoice={setFilterChoice} />
-          <FilterButton filterCriteria="Genre" filterValue={filterOnGenre} setFilterValue={setFilterOnGenre} setFilterChoice={setFilterChoice} />
-          <FilterButton filterCriteria="Rating" filterValue={filterOnRating} setFilterValue={setFilterOnRating} setFilterChoice={setFilterChoice} />
+          <FilterTextField filterCriteria="Author" filterValue={filterOnAuthor} setFilterValue={setFilterOnAuthor} setFilterChoice={setFilterChoice} />
+          <FilterTextField filterCriteria="Genre" filterValue={filterOnGenre} setFilterValue={setFilterOnGenre} setFilterChoice={setFilterChoice} />
+          <FilterSlider filterCriteria="Rating" filterValue={filterOnRating} setFilterValue={setFilterOnRating} setFilterChoice={setFilterChoice} />
         </div>
 
         {/* List of 40 books */}

@@ -55,23 +55,31 @@ const BookDetail = () => {
           <tbody>
             <tr>
               <th>ISBN-10:</th>
-              <td>{currentBook?.volumeInfo.industryIdentifiers[0]?.identifier}</td>
+              <td>{currentBook?.volumeInfo.industryIdentifiers[0]?.identifier ?? "N/A"}</td>
             </tr>
             <tr>
               <th>ISBN-13:</th>
-              <td>{currentBook?.volumeInfo.industryIdentifiers[1]?.identifier ?? "no ISBN 13"}</td>
+              <td>{currentBook?.volumeInfo.industryIdentifiers[1]?.identifier ?? "N/A"}</td>
             </tr>
             <tr>
               <th>Publisher:</th>
-              <td>{currentBook?.volumeInfo.publisher}</td>
+              <td>{currentBook?.volumeInfo.publisher ?? "N/A"}</td>
             </tr>
             <tr>
               <th>Publication date:</th>
-              <td>{currentBook?.volumeInfo.publishedDate}</td>
+              <td>{currentBook?.volumeInfo.publishedDate ?? "N/A"}</td>
             </tr>
             <tr>
               <th>Pages:</th>
-              <td>{currentBook?.volumeInfo.pageCount}</td>
+              <td>{currentBook?.volumeInfo.pageCount ?? "N/A"}</td>
+            </tr>
+            <tr>
+              <th>Category:</th>
+              <td>{currentBook?.volumeInfo.categories ?? "N/A"}</td>
+            </tr>
+            <tr>
+              <th>Avg rating:</th>
+              <td>{currentBook?.volumeInfo.averageRating ?? "N/A"}</td>
             </tr>
           </tbody>
         </table>
