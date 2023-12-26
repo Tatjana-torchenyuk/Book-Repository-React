@@ -4,6 +4,16 @@
 }
 .container button{
   width: 100px;
+  background-color: rgb(64,157,105);
+  color: white;
+  text-align: left;
+  border: none;
+  border-radius: 2px;
+  padding: 10px 12px;
+  background-image: url(./assets/chevron-down-square.svg);
+  background-repeat: no-repeat;
+  background-position: right 5px center;
+
 }
 .searchFieldVisible {
   display: block;

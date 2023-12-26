@@ -1,5 +1,6 @@
 import {  useState } from "react";
 import styles from "./FilterButton.module.css";
+import chevron from "./assets/chevron-down.svg";
 
 interface FilterButtonProps {
   filterCriteria: string;
@@ -29,6 +30,7 @@ const FilterButton = ({ filterCriteria, filterValue, setFilterValue, setFilterCh
         onChange={handleOnChange} 
       />
     </div>
+    
 
   )
 }

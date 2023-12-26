@@ -66,9 +66,9 @@ const BookList = () => {
                 </Link>
               </figure>
 
-              <div>
+              <div className={styles.bookInfo}>
                 <Link to={`/books/${book.id}`}>{book.volumeInfo?.title}</Link>
-                <div>by {book.volumeInfo?.authors.map((author, index) => <p key={index}>{author}</p>)}</div>
+                <div className={styles.authors}>by {book.volumeInfo?.authors.map((author, index) => <p key={index}>{author}</p>)}</div>
               </div>
 
             </article>
