@@ -6,10 +6,13 @@ import BookDetail from "./components/BookDetailPage/BookDetail";
 import { useEffect, useState } from "react";
 import { Book, BookRoot } from "./types";
 import DataContext from "./DataContext";
+import { DarkLightThemeContext } from "./DarkLightThemeContext";
 
 function App() {
   // Retrieved data is kept in state.
   const [books, setBooks] = useState<Book[]>([]);
+  // Dark/Light theme
+  const [theme, setTheme] = useState("light");
 
   const loadBooks = async () => {
     // API-specific query parameters:
@@ -41,7 +44,7 @@ function App() {
         },
         {
           path: "books",
-          element: <BookList/>
+          element: <BookList />
         },
         {
           path: "books/:id",
@@ -53,10 +56,12 @@ function App() {
 
   return (
     <>
-    {/* The value of the state is passed based on the context */}
-      <DataContext.Provider value={{ books: books }}>
-        <RouterProvider router={router} />
-      </DataContext.Provider>
+      {/* The value of the state is passed based on the context */}
+      <DarkLightThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
+        <DataContext.Provider value={{ books: books }}>
+          <RouterProvider router={router} />
+        </DataContext.Provider>
+      </DarkLightThemeContext.Provider>
     </>
   );
 }

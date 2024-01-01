@@ -45,8 +45,8 @@ const BookList = () => {
         break;
     }
     return filteredBooks;
-
   }
+
   const filteredBooks = getFilteredBooks(books, filterChoice);
 
   return (
