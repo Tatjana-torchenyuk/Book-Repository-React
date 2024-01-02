@@ -11,8 +11,7 @@ const HomePage = () => {
         <Link to="/books"><img src={portal} className={styles.portal} alt="Image of bookcase with portal" /></Link>
       </figure>
       <section className={styles.introHome}>
-        <p>Immerse yourself in the magical world of literature and explore a treasure trove of books based on authors, publication years, and genres.</p>
-        <p>Whether you're searching for timeless classics, the latest releases, or a specific genre that ignites your passion, BookVerse has it all with just a few clicks.</p>
+        <p>Immerse yourself in the magical world of literature and explore a treasure trove of newly released books.</p>
       </section>
     </main>
   );

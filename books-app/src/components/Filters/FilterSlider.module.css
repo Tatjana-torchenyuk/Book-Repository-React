@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 .container button{
-  width: 100px;
+  width: 123px;
   background-color: rgb(64,157,105);
   color: white;
   text-align: left;
@@ -17,15 +17,19 @@
 }
 
 .sliderVisible {
-  -webkit-appearance: none;  /* Override default CSS styles */
+  -webkit-appearance: none;
   appearance: none;
-  width: 100%; /* Full-width */
-  height: 25px; /* Specified height */
-  background: rgb(211, 211, 211); /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  width: 123px;
+  height: 25px;
+  background: rgb(211, 211, 211);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
   transition: opacity .2s;
+  display: block;
+  margin-top: 2px;
+  padding: 0;
+  
 }
 
 .sliderVisible:hover {
@@ -33,19 +37,19 @@
 }
 
 .sliderVisible::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
+  -webkit-appearance: none;
   appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: rgb(4, 170, 109); /* Green background */
-  cursor: pointer; /* Cursor on hover */
+  width: 25px;
+  height: 25px;
+  background: rgb(4, 170, 109);
+  cursor: pointer;
 }
 
 .sliderVisible::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
 }
 
 .sliderHidden {

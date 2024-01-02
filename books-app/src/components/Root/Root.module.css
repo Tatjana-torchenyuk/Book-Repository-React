@@ -8,7 +8,6 @@ html, body {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: 100vh;
     min-width: 100%;
@@ -29,20 +28,16 @@ main a:visited {
     height: 50px;
     width: 100%;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-}
-
-.topNavigation {
-    display: flex;
-    align-items: center;
+    padding: 10px 0px;
 }
 
 .topNavigation ul {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
     font-size: 20px;
     list-style-type: none; 
+    padding: 0;
 }
 
 .activeNavLink {
@@ -73,6 +68,39 @@ main a:visited {
     margin-right: 20px;
 }
 
+.icons {
+    padding-right: 10px;
+}
+
+.plusMinusLightBtn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    margin-right: 5px;
+    background-color: rgb(244, 241, 234);
+}
+
+.plusMinusLightBtn img {
+    background-color: rgb(244, 241, 234);
+    width: 30px;
+}
+
+.plusMinusDarkBtn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    margin-right: 5px;
+    background-color: rgb(27,27,29);
+}
+
+.plusMinusDarkBtn img {
+    background-color: rgb(27,27,29);
+    color: rgb(244, 241, 234);
+    width: 30px;
+}
+
 .sunBtn {
     width: 50px;
     height: 50px;
@@ -83,6 +111,7 @@ main a:visited {
 
 .sunBtn img{
     background-color: rgb(244, 241, 234);
+    width: 30px;
 }
 .moonBtn {
     width: 50px;
@@ -95,6 +124,7 @@ main a:visited {
 .moonBtn img {
     color: rgb(244, 241, 234);
     background-color: rgb(27,27,29);
+    width: 30px;
 }
 .footer {
     display: flex;

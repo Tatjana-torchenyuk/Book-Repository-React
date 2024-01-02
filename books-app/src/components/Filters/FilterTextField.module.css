@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 .container button{
-  width: 100px;
+  width: 123px;
   background-color: rgb(64,157,105);
   color: white;
   text-align: left;
@@ -18,6 +18,9 @@
 
 .searchFieldVisible {
   display: block;
+  margin-top: 2px;
+  padding: 0;
+  width: 120px;
 }
 
 .searchFieldHidden {

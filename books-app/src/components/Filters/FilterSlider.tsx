@@ -20,14 +20,15 @@ const FilterSlider = ({ filterCriteria, filterValue, setFilterValue, setFilterCh
   return (
     <div className={styles.container}>
       <button onClick={handleClick}>
-        {filterCriteria}
+        {filterCriteria} {">="} {filterValue}
       </button>
       <input 
         className={show ? styles.sliderVisible :  styles.sliderHidden}
         type="range"
         min="0"
-        max="10"
+        max="5"
         value={filterValue} 
+        
         onChange={handleOnChange}
       />
     </div>
