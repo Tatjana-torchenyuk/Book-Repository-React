@@ -5,7 +5,7 @@ import portal from "./assets/bookcase-portal.jpeg";
 const HomePage = () => {
 
   return (
-    <main>
+    <main className={styles.main}>
       <h1>Welcome to BookVerse</h1>
       <figure>
         <Link to="/books"><img src={portal} className={styles.portal} alt="Image of bookcase with portal" /></Link>

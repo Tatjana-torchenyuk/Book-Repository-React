@@ -1,6 +1,5 @@
 html, body {
     font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
-    background-color: rgb(249, 247, 244);
     color: rgb(51, 51, 51);
     margin: 0;
 }
@@ -12,6 +11,7 @@ main {
     min-height: 100vh;
     min-width: 100%;
 }
+
 main a {
     color: rgb(51,51,51);
 }
@@ -24,10 +24,8 @@ main a:visited {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(244, 241, 234);
     height: 50px;
     width: 100%;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
     padding: 10px 0px;
 }
 
@@ -126,6 +124,7 @@ main a:visited {
     background-color: rgb(27,27,29);
     width: 30px;
 }
+
 .footer {
     display: flex;
     align-items: center;
@@ -135,8 +134,14 @@ main a:visited {
     padding-bottom: 10px;
     color: rgb(64, 39, 39);
     font-size: 17px;
-    background-color: rgb(244, 241, 234);
     height: 50px;
     width: 100%;
-    box-shadow: 0px -1px rgba(0, 0, 0, 0.15);
+}
+
+@media all and (max-width: 800px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
 }

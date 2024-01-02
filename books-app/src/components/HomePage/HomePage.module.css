@@ -1,9 +1,21 @@
 
 .portal {
-    height: 550px;
+    max-height: 600px;
+    height: auto;
+    width: 100%;
 }
 
 .introHome {
     text-align: center;
     max-width: 450px ;
+    padding-bottom: 150px;
+}
+
+@media all and (max-width: 800px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
 }

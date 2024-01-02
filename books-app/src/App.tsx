@@ -7,12 +7,15 @@ import { useEffect, useState } from "react";
 import { Book, BookRoot } from "./types";
 import DataContext from "./DataContext";
 import { DarkLightThemeContext } from "./DarkLightThemeContext";
+import { FontSizeContext } from "./FontSizeContext";
 
 function App() {
-  // Retrieved data is kept in state.
+  // Retrieved data from the Google Books API is kept in state:
   const [books, setBooks] = useState<Book[]>([]);
-  // Dark/Light theme
+  // Dark/Light theme state
   const [theme, setTheme] = useState("light");
+  // Font size (larger/normal) state
+  const [largerFontSize, setLargerFontSize] = useState(false);
 
   const loadBooks = async () => {
     // API-specific query parameters:
@@ -57,11 +60,13 @@ function App() {
   return (
     <>
       {/* The value of the state is passed based on the context */}
+      <FontSizeContext.Provider value={{largerFontSize: largerFontSize, setLargerFontSize: setLargerFontSize}}>
       <DarkLightThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
         <DataContext.Provider value={{ books: books }}>
           <RouterProvider router={router} />
         </DataContext.Provider>
       </DarkLightThemeContext.Provider>
+      </FontSizeContext.Provider>
     </>
   );
 }

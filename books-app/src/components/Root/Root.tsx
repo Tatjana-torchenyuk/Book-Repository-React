@@ -1,17 +1,22 @@
 import { Outlet, NavLink } from "react-router-dom";
 import styles from "./Root.module.css";
-import { DarkLightThemeContext, toggleTheme } from "../../DarkLightThemeContext";
+import { DarkLightThemeContext, toggleTheme, toggleThemeOutlet } from "../../DarkLightThemeContext";
 import { useContext } from "react";
 import sun from "./assets/sun.svg";
 import moon from "./assets/moon.svg";
 import plusMinusLight from "./assets/plus-minus-light.svg";
 import plusMinusDark from "./assets/plus-minus-dark.svg";
+import { FontSizeContext, toggleFontSize } from "../../FontSizeContext";
 
 const Root = () => {
+  // context for dark/light theme
   const { theme, setTheme } = useContext(DarkLightThemeContext);
+  // context for larger/normal font size
+  const { largerFontSize, setLargerFontSize } = useContext(FontSizeContext);
 
   return (
-    <div style={toggleTheme(theme)}>
+    // Combine multiple objects for style using spread operator
+    <div style={{...toggleTheme(theme), ...toggleFontSize(largerFontSize)}}>
       <header style={toggleTheme(theme)} className={styles.header}>
         <div style={{width:"115px"}}></div>
         <nav className={styles.topNavigation}>
@@ -29,8 +34,8 @@ const Root = () => {
         </nav>
         <div className={styles.icons}>
           {theme == "light" ?
-            <button className={styles.plusMinusLightBtn}><img src={plusMinusLight} alt="plus-minus icon" /></button> :
-            <button className={styles.plusMinusDarkBtn}><img src={plusMinusDark} alt="plus-minus icon" /></button>
+            <button className={styles.plusMinusLightBtn} onClick={() => setLargerFontSize(!largerFontSize)}><img src={plusMinusLight} alt="plus-minus icon" /></button> :
+            <button className={styles.plusMinusDarkBtn}  onClick={() => setLargerFontSize(!largerFontSize)}><img src={plusMinusDark} alt="plus-minus icon" /></button>
           }
 
           {theme === "light" ?
@@ -39,7 +44,7 @@ const Root = () => {
           }
         </div>
       </header>
-      <div >
+      <div style={toggleThemeOutlet(theme)}>
         <Outlet />
       </div>
 
