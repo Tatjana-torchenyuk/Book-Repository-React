@@ -6,6 +6,8 @@ interface DisplayCardProps {
   book: Book
 }
 
+// component with one prop 'book'
+// renders a card displaying book info like the book's cover image, title and authors.
 const DisplayCard = ({ book }: DisplayCardProps) => {
 
   return (

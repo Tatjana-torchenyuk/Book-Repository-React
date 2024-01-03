@@ -1,13 +1,14 @@
-import { Outlet, NavLink } from "react-router-dom";
 import styles from "./Root.module.css";
+import { Outlet, NavLink } from "react-router-dom";
 import { DarkLightThemeContext, toggleTheme, toggleThemeOutlet } from "../../context/DarkLightThemeContext";
-import { useContext } from "react";
-import sun from "./assets/sun.svg";
-import moon from "./assets/moon.svg";
-import plusMinusLight from "./assets/plus-minus-light.svg";
-import plusMinusDark from "./assets/plus-minus-dark.svg";
 import { FontSizeContext, toggleFontSize } from "../../context/FontSizeContext";
-import IconButton from "../Buttons/IconButtons/IconButton";
+import { useContext } from "react";
+import IconButton from "../Buttons/IconButton/IconButton";
+import sun from "../Buttons/assets/sun.svg";
+import moon from "../Buttons/assets/moon.svg";
+import plusMinusLight from "../Buttons/assets/plus-minus-light.svg";
+import plusMinusDark from "../Buttons/assets/plus-minus-dark.svg";
+import { Action } from "../../enums";
 
 const Root = () => {
   // context for dark/light theme
@@ -35,8 +36,8 @@ const Root = () => {
           </ul>
         </nav>
         <div className={styles.icons}>
-            <IconButton iconLightTheme={plusMinusLight} iconDarkTheme={plusMinusDark} action="fontsize"/>
-            <IconButton iconLightTheme={sun} iconDarkTheme={moon} action="darklight"/>
+            <IconButton iconLightTheme={plusMinusLight} iconDarkTheme={plusMinusDark} action={Action.fontSize}/>
+            <IconButton iconLightTheme={sun} iconDarkTheme={moon} action={Action.darkLight}/>
         </div>
       </header>
 

@@ -30,12 +30,13 @@ function App() {
     setBooks(BookRoot.items);
   }
 
-  // Hook -> API call (side effect) is disconnected from the rest of our rendering code 
-  // and the empty dependency array ensures that it is executed once after the 1st render
+  // Inside the useEffect hook the function loadBooks() (= fetching the data) is called
+  // and the empty dependency array ensures that it is executed once after the 1st render.
   useEffect(() => {
     loadBooks();
   }, []);
 
+  // func for configuring a client-side router with main route ("/") and 3 child routes
   const router = createBrowserRouter([
     {
       path: "/",
@@ -59,7 +60,7 @@ function App() {
 
   return (
     <>
-      {/* The value of the state is passed based on the context */}
+      {/* The context provider is making the value (and the setter func) available to any components inside the wrapper */}
       <FontSizeContext.Provider value={{largerFontSize: largerFontSize, setLargerFontSize: setLargerFontSize}}>
       <DarkLightThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
         <DataContext.Provider value={{ books: books }}>

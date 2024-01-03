@@ -10,10 +10,13 @@ interface FilterTextFieldProps {
 const FilterTextField = ({ filterCriteria, filterValue, setFilterValue, setFilterChoice }: FilterTextFieldProps) => {
   const [show, setShow] = useState<boolean>(false);
 
+  // toggle visibility of the input field and set the filter choice when button is clicked
   const handleClick = () => {
     setShow(!show);
     setFilterChoice(filterCriteria);
   }
+
+  // handle changes in the search input value and update the filter value accordingly
   const handleOnChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     setFilterValue(e.target.value);
   }

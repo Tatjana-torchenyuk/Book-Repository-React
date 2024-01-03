@@ -70,6 +70,10 @@ main a:visited {
     padding-right: 10px;
 }
 
+.icons button {
+    margin: 0 2px;
+}
+
 .footer {
     display: flex;
     align-items: center;
@@ -89,4 +93,9 @@ main a:visited {
         flex-direction: column;
         height: auto;
     }
+
+    .icons {
+        padding: 0;
+    }
+
 }

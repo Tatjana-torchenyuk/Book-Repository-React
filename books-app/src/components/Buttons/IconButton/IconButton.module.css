@@ -24,6 +24,7 @@
   border-radius: 50%;
   margin-right: 5px;
   background-color: rgb(27,27,29);
+  
 }
 
 .darkBtn:hover {
@@ -32,6 +33,5 @@
 
 .darkBtn img {
   background-color: rgb(27,27,29);
-  color: rgb(244, 241, 234);
   width: 30px;
 }
