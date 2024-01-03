@@ -1,0 +1,32 @@
+
+.bookCard figure {
+  margin: 0;
+  height: auto;
+}
+
+.bookCard img {
+  width: 100%;
+  height: auto;
+}
+
+.bookCard article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  overflow-wrap: break-word;
+  align-content: center;
+  height: auto;
+  width: 260px
+}
+
+.bookInfo {
+  width: 100%;
+  text-align: left;
+  padding-left: 0px;
+}
+
+.authors{
+  overflow-y: auto;
+  max-height: 50px;
+}

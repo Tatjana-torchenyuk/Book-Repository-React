@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
 import styles from "./BookList.module.css";
 import { useContext, useState } from "react";
 import DataContext from "../../DataContext";
 import { Book } from "../../types";
 import FilterTextField from "../Filters/FilterTextField";
 import FilterSlider from "../Filters/FilterSlider";
+import DisplayCard from "../DisplayCard/DisplayCard";
 
 const BookList = () => {
   const { books } = useContext(DataContext);
@@ -65,20 +65,9 @@ const BookList = () => {
         {/* List of 40 books */}
         <div className={styles.bookList}>
           {filteredBooks.map((book) => {
-            return <article key={book.id}>
-
-              <figure>
-                <Link to={`/books/${book.id}`}>
-                  <img src={book.volumeInfo?.imageLinks.thumbnail} alt={book.volumeInfo?.title || 'Book Cover'} ></img>
-                </Link>
-              </figure>
-
-              <div className={styles.bookInfo}>
-                <Link to={`/books/${book.id}`}>{book.volumeInfo?.title}</Link>
-                <div className={styles.authors}>by {book.volumeInfo?.authors.map((author, index) => <p key={index}>{author}</p>)}</div>
-              </div>
-
-            </article>
+            return (
+              <DisplayCard book={book} key={book.id}/>
+            )
           })}
         </div>
       </section>
