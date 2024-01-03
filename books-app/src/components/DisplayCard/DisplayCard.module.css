@@ -9,7 +9,7 @@
   height: auto;
 }
 
-.bookCard article {
+.bookCard {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,7 +17,7 @@
   overflow-wrap: break-word;
   align-content: center;
   height: auto;
-  width: 260px
+  width: 230px;
 }
 
 .bookInfo {
