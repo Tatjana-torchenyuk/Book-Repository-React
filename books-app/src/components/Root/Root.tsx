@@ -7,16 +7,18 @@ import moon from "./assets/moon.svg";
 import plusMinusLight from "./assets/plus-minus-light.svg";
 import plusMinusDark from "./assets/plus-minus-dark.svg";
 import { FontSizeContext, toggleFontSize } from "../../context/FontSizeContext";
+import IconButton from "../Buttons/IconButtons/IconButton";
 
 const Root = () => {
   // context for dark/light theme
-  const { theme, setTheme } = useContext(DarkLightThemeContext);
+  const { theme } = useContext(DarkLightThemeContext);
   // context for larger/normal font size
-  const { largerFontSize, setLargerFontSize } = useContext(FontSizeContext);
+  const { largerFontSize } = useContext(FontSizeContext);
 
   return (
     // Combine multiple objects for style using spread operator
     <div style={{...toggleTheme(theme), ...toggleFontSize(largerFontSize)}}>
+
       <header style={toggleTheme(theme)} className={styles.header}>
         <div style={{width:"115px"}}></div>
         <nav className={styles.topNavigation}>
@@ -33,17 +35,11 @@ const Root = () => {
           </ul>
         </nav>
         <div className={styles.icons}>
-          {theme == "light" ?
-            <button className={styles.plusMinusLightBtn} onClick={() => setLargerFontSize(!largerFontSize)}><img src={plusMinusLight} alt="plus-minus icon" /></button> :
-            <button className={styles.plusMinusDarkBtn}  onClick={() => setLargerFontSize(!largerFontSize)}><img src={plusMinusDark} alt="plus-minus icon" /></button>
-          }
-
-          {theme === "light" ?
-            <button className={styles.sunBtn} onClick={() => { setTheme("dark") }}><img src={sun} alt="moon icon" /></button> :
-            <button className={styles.moonBtn} onClick={() => { setTheme("light") }}><img src={moon} alt="sun icon" /></button>
-          }
+            <IconButton iconLightTheme={plusMinusLight} iconDarkTheme={plusMinusDark} action="fontsize"/>
+            <IconButton iconLightTheme={sun} iconDarkTheme={moon} action="darklight"/>
         </div>
       </header>
+
       <div style={toggleThemeOutlet(theme)}>
         <Outlet />
       </div>
@@ -51,6 +47,7 @@ const Root = () => {
       <footer style={toggleTheme(theme)} className={styles.footer}>
         <p>&copy;2023 BookVerse | Tatjana Torchenyuk</p>
       </footer>
+
     </div>
   );
 }
