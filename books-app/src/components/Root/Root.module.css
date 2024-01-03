@@ -79,10 +79,15 @@ main a:visited {
     background-color: rgb(244, 241, 234);
 }
 
+.plusMinusLightBtn:hover {
+    border: 2px solid rgba(64, 39, 39, 0.502);
+}
+
 .plusMinusLightBtn img {
     background-color: rgb(244, 241, 234);
     width: 30px;
 }
+
 
 .plusMinusDarkBtn {
     width: 50px;
@@ -91,6 +96,10 @@ main a:visited {
     border-radius: 50%;
     margin-right: 5px;
     background-color: rgb(27,27,29);
+}
+
+.plusMinusDarkBtn:hover {
+    border: 2px solid rgba(64, 39, 39, 0.502);
 }
 
 .plusMinusDarkBtn img {
@@ -107,6 +116,10 @@ main a:visited {
     background-color: rgb(244, 241, 234);
 }
 
+.sunBtn:hover {
+    border: 2px solid rgba(64, 39, 39, 0.502);
+}
+
 .sunBtn img{
     background-color: rgb(244, 241, 234);
     width: 30px;
@@ -117,6 +130,10 @@ main a:visited {
     border: none;
     border-radius: 50%;
     background-color: rgb(27,27,29);
+}
+
+.moonBtn:hover {
+    border: 2px solid rgba(64, 39, 39, 0.502);
 }
 
 .moonBtn img {
