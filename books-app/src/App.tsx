@@ -5,9 +5,9 @@ import BookList from "./components/BookListPage/BookList";
 import BookDetail from "./components/BookDetailPage/BookDetail";
 import { useEffect, useState } from "react";
 import { Book, BookRoot } from "./types";
-import DataContext from "./DataContext";
-import { DarkLightThemeContext } from "./DarkLightThemeContext";
-import { FontSizeContext } from "./FontSizeContext";
+import DataContext from "./context/DataContext";
+import { DarkLightThemeContext } from "./context/DarkLightThemeContext";
+import { FontSizeContext } from "./context/FontSizeContext";
 
 function App() {
   // Retrieved data from the Google Books API is kept in state:

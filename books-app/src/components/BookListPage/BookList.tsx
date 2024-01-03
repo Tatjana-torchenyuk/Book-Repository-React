@@ -1,6 +1,6 @@
 import styles from "./BookList.module.css";
 import { useContext, useState } from "react";
-import DataContext from "../../DataContext";
+import DataContext from "../../context/DataContext";
 import { Book } from "../../types";
 import FilterTextField from "../Filters/FilterTextField";
 import FilterSlider from "../Filters/FilterSlider";

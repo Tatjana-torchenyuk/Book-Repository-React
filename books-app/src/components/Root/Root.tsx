@@ -1,12 +1,12 @@
 import { Outlet, NavLink } from "react-router-dom";
 import styles from "./Root.module.css";
-import { DarkLightThemeContext, toggleTheme, toggleThemeOutlet } from "../../DarkLightThemeContext";
+import { DarkLightThemeContext, toggleTheme, toggleThemeOutlet } from "../../context/DarkLightThemeContext";
 import { useContext } from "react";
 import sun from "./assets/sun.svg";
 import moon from "./assets/moon.svg";
 import plusMinusLight from "./assets/plus-minus-light.svg";
 import plusMinusDark from "./assets/plus-minus-dark.svg";
-import { FontSizeContext, toggleFontSize } from "../../FontSizeContext";
+import { FontSizeContext, toggleFontSize } from "../../context/FontSizeContext";
 
 const Root = () => {
   // context for dark/light theme
