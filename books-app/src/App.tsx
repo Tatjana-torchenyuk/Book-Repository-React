@@ -9,6 +9,7 @@ import DataContext from "./context/DataContext";
 import { DarkLightThemeContext } from "./context/DarkLightThemeContext";
 import { FontSizeContext } from "./context/FontSizeContext";
 import ListViewContext from "./context/ListViewContext";
+import PageNotFound from "./components/PageNotFound/PageNotFound";
 
 function App() {
   // Retrieved data from the Google Books API is kept in state:
@@ -39,7 +40,7 @@ function App() {
     loadBooks();
   }, []);
 
-  // func for configuring a client-side router with main route ("/") and 3 child routes
+  // func for configuring a client-side router with main (root) route ("/") and 4 child routes.
   const router = createBrowserRouter([
     {
       path: "/",
@@ -56,6 +57,10 @@ function App() {
         {
           path: "books/:id",
           element: <BookDetail />
+        },
+        {
+          path: "*",
+          element: <PageNotFound />
         }
       ]
     }
