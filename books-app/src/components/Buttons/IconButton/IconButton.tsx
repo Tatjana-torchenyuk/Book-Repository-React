@@ -3,6 +3,7 @@ import { useContext } from "react";
 import styles from "./IconButton.module.css";
 import { DarkLightThemeContext } from "../../../context/DarkLightThemeContext";
 import { FontSizeContext } from "../../../context/FontSizeContext";
+import ListViewContext from "../../../context/ListViewContext";
 import {Action} from "../../../enums";
 
 interface IconButtonProps {
@@ -22,6 +23,7 @@ interface IconButtonProps {
 const IconButton = ({ iconLightTheme, iconDarkTheme, action }: IconButtonProps) => {
   const { theme, setTheme } = useContext(DarkLightThemeContext);
   const { largerFontSize, setLargerFontSize } = useContext(FontSizeContext);
+  const { listView, setListView } = useContext(ListViewContext);
 
   if (action === Action.fontSize) {
     return (
@@ -32,12 +34,30 @@ const IconButton = ({ iconLightTheme, iconDarkTheme, action }: IconButtonProps) 
         }
       </>
     )
-  } else if (Action.darkLight) {
+  } else if (action === Action.darkLight) {
     return (
       <>
         {theme === "light" ?
           <button className={styles.lightBtn} onClick={() => setTheme("dark")}><img src={iconLightTheme} alt="icon" /></button> :
           <button className={styles.darkBtn} onClick={() => setTheme("light")}><img src={iconDarkTheme} alt="icon" /></button>
+        }
+      </>
+    )
+  } else if (action === Action.listLayout) {
+    return (
+      <>
+        {theme === "light" ?
+          <button className={styles.lightBtn} onClick={() => setListView(true)}><img src={iconLightTheme} alt="icon" /></button> :
+          <button className={styles.darkBtn} onClick={() => setListView(true)}><img src={iconDarkTheme} alt="icon" /></button>
+        }
+      </>
+    )
+  } else if (action === Action.gridLayout) {
+    return (
+      <>
+        {theme === "light" ?
+          <button className={styles.lightBtn} onClick={() => setListView(false)}><img src={iconLightTheme} alt="icon" /></button> :
+          <button className={styles.darkBtn} onClick={() => setListView(false)}><img src={iconDarkTheme} alt="icon" /></button>
         }
       </>
     )

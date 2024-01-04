@@ -8,6 +8,7 @@ import { Book, BookRoot } from "./types";
 import DataContext from "./context/DataContext";
 import { DarkLightThemeContext } from "./context/DarkLightThemeContext";
 import { FontSizeContext } from "./context/FontSizeContext";
+import ListViewContext from "./context/ListViewContext";
 
 function App() {
   // Retrieved data from the Google Books API is kept in state:
@@ -16,6 +17,8 @@ function App() {
   const [theme, setTheme] = useState("light");
   // Font size (larger/normal) state
   const [largerFontSize, setLargerFontSize] = useState(false);
+  // List view state
+  const [listView, setListView] = useState(false);
 
   const loadBooks = async () => {
     // API-specific query parameters:
@@ -61,13 +64,15 @@ function App() {
   return (
     <>
       {/* The context provider is making the value (and the setter func) available to any components inside the wrapper */}
+      <ListViewContext.Provider value={{listView: listView, setListView: setListView}}>
       <FontSizeContext.Provider value={{largerFontSize: largerFontSize, setLargerFontSize: setLargerFontSize}}>
       <DarkLightThemeContext.Provider value={{ theme: theme, setTheme: setTheme }}>
-        <DataContext.Provider value={{ books: books }}>
+      <DataContext.Provider value={{ books: books }}>
           <RouterProvider router={router} />
-        </DataContext.Provider>
+      </DataContext.Provider>
       </DarkLightThemeContext.Provider>
       </FontSizeContext.Provider>
+      </ListViewContext.Provider>
     </>
   );
 }

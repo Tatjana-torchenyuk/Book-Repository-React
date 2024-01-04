@@ -15,9 +15,11 @@ import listDarkIcon from "../Buttons/assets/list-dark.svg";
 import { Action } from "../../enums";
 import SortButton from "../Buttons/SortButton/SortButton";
 import DisplayRow from "../DisplayRow/DisplayRow";
+import ListViewContext from "../../context/ListViewContext";
 
 const BookList = () => {
   const { books } = useContext(DataContext);
+  const { listView } = useContext(ListViewContext);
   const [filterChoice, setFilterChoice] = useState<string>("");
   const [filterOnAuthor, setFilterOnAuthor] = useState<string>("");
   const [filterOnGenre, setFilterOnGenre] = useState<string>("");
@@ -25,11 +27,13 @@ const BookList = () => {
   const [sorted, setSorted] = useState<boolean>(false);
   const [modifiedBooks, setModifiedBooks] = useState<Book[]>([]);
 
+
+
   // filter the array of books on author, genre or rating 
   // and return an array of filtered books
   const getFilteredBooks = (books: Book[], filterType: string): Book[] => {
     let filteredBooks: Book[] = [...books];
-    
+
     switch (filterType) {
       // filter books based on change in the state filterOnAuthor
       case ("Author"):
@@ -42,13 +46,13 @@ const BookList = () => {
           }
         });
         break;
-        // filter books based on change in the state filterOnGenre
+      // filter books based on change in the state filterOnGenre
       case ("Genre"):
         filteredBooks = books.filter(book => {
           return book.volumeInfo.categories[0].toUpperCase().includes(filterOnGenre.toUpperCase());
         });
         break;
-        // filter books based on change in the state filterOnRating
+      // filter books based on change in the state filterOnRating
       case ("Rating"):
         filteredBooks = books.filter(book => {
           if (filterOnRating !== undefined) {
@@ -70,8 +74,8 @@ const BookList = () => {
   // function that sorts the books by title, first in ascending order, and if the button
   // is clicked second time, in descending order 
   const handleSort = () => {
-    const sortedBooks:Book[] = [...books];
-    if(sorted) {
+    const sortedBooks: Book[] = [...books];
+    if (sorted) {
       sortedBooks.sort((a, b) => {
         return a.volumeInfo.title < b.volumeInfo.title ? 1 : -1
       });
@@ -87,12 +91,12 @@ const BookList = () => {
       setSorted(true);
     }
   }
-  
+
   // Whenever the books dependency changes, the useEffect hook will be triggered.
   // The state variable modifiedBooks is empty by default.
   // That's why inside useEffect func, setModifiedBooks(books) is called,
   // and this updates the state variable modifiedBooks with the current value of the books prop.
-  
+
   useEffect(() => {
     setModifiedBooks(books);
   }, [books])
@@ -113,7 +117,7 @@ const BookList = () => {
         <div>
           {/* Iconbutton for sorting, grid-layout, list-layout */}
           <div className={styles.iconButtons}>
-            <SortButton iconLightTheme={sortIcon} iconDarkTheme={sortDarkIcon} handleSort={handleSort}/>
+            <SortButton iconLightTheme={sortIcon} iconDarkTheme={sortDarkIcon} handleSort={handleSort} />
             <IconButton iconLightTheme={gridIcon} iconDarkTheme={gridDarkIcon} action={Action.gridLayout} />
             <IconButton iconLightTheme={listIcon} iconDarkTheme={listDarkIcon} action={Action.listLayout} />
           </div>
@@ -121,7 +125,12 @@ const BookList = () => {
           <div className={styles.bookList}>
             {filteredBooks.map((book) => {
               return (
-                <DisplayRow book={book} key={book.id} />
+                <>
+                  {listView ?
+                    <DisplayRow book={book} key={book.id} /> :
+                    <DisplayCard book={book} key={book.id} />
+                  }
+                </>
               )
             })}
           </div>
