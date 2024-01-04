@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import styles from "./BookDetail.module.css";
 import { Book } from "../../types";
-import PageNotFound from "../PageNotFound/PageNotFound";
+import ProductDetailTable from "../ProductDetailTable/ProductDetailTable";
 
 
 const BookDetail = () => {
@@ -12,8 +12,8 @@ const BookDetail = () => {
   const [imgUrl, setImgUrl] = useState<string>("");
 
   const loadBookById = async (id: string) => {
-    let response = await fetch(`https://www.googleapis.com/books/v1/volumes/${id}`);
-    let book: Book = await response.json();
+    const response = await fetch(`https://www.googleapis.com/books/v1/volumes/${id}`);
+    const book: Book = await response.json();
 
     setCurrentBook(book);
     if (book.volumeInfo.imageLinks.small) {
@@ -36,57 +36,25 @@ const BookDetail = () => {
   }
 
   return (
-  <>
-    { currentBook !== undefined && (<main className={styles.bookContainer}>
-
-      <section className={styles.bookOverview}>
-        <figure>
-          <img src={imgUrl} alt={currentBook?.volumeInfo?.title || 'Book Cover'} />
-        </figure>
-        <div className={styles.bookContent}>
-          <h1>{currentBook?.volumeInfo?.title}</h1>
-          <p>by {currentBook?.volumeInfo?.authors}</p>
-          <p className={styles.bookDescription}>{currentBook?.volumeInfo?.description}</p>
-        </div>
-      </section>
-      <section className={styles.bookDetails}>
-        <h2>Book Details</h2>
-        <table className={styles.productDetailTable}>
-          <tbody>
-            <tr>
-              <th>ISBN-10:</th>
-              <td>{currentBook?.volumeInfo.industryIdentifiers[0]?.identifier ?? "N/A"}</td>
-            </tr>
-            <tr>
-              <th>ISBN-13:</th>
-              <td>{currentBook?.volumeInfo.industryIdentifiers[1]?.identifier ?? "N/A"}</td>
-            </tr>
-            <tr>
-              <th>Publisher:</th>
-              <td>{currentBook?.volumeInfo.publisher ?? "N/A"}</td>
-            </tr>
-            <tr>
-              <th>Publication date:</th>
-              <td>{currentBook?.volumeInfo.publishedDate ?? "N/A"}</td>
-            </tr>
-            <tr>
-              <th>Pages:</th>
-              <td>{currentBook?.volumeInfo.pageCount ?? "N/A"}</td>
-            </tr>
-            <tr>
-              <th>Category:</th>
-              <td>{currentBook?.volumeInfo.categories ?? "N/A"}</td>
-            </tr>
-            <tr>
-              <th>Avg rating:</th>
-              <td>{currentBook?.volumeInfo.averageRating ?? "N/A"}</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      <Link to="/books" className={styles.backBtn}>Back</Link>
-    </main>)}
-  </>    
+    <main>
+      {currentBook !== undefined && (<main className={styles.bookContainer}>
+        <section className={styles.bookOverview}>
+          <figure>
+            <img src={imgUrl} alt={currentBook?.volumeInfo?.title || 'Book Cover'} />
+          </figure>
+          <div className={styles.bookContent}>
+            <h1>{currentBook?.volumeInfo?.title}</h1>
+            <p>by {currentBook?.volumeInfo?.authors}</p>
+            <p className={styles.bookDescription}>{currentBook?.volumeInfo?.description}</p>
+          </div>
+        </section>
+        <section className={styles.bookDetails}>
+          <h2>Book Details</h2>
+          <ProductDetailTable book={currentBook} />
+        </section>
+        <Link to="/books" className={styles.backBtn}>Back</Link>
+      </main>)}
+    </main>
   )
 }
 
