@@ -14,6 +14,7 @@ import listIcon from "../Buttons/assets/list.svg";
 import listDarkIcon from "../Buttons/assets/list-dark.svg";
 import { Action } from "../../enums";
 import SortButton from "../Buttons/SortButton/SortButton";
+import DisplayRow from "../DisplayRow/DisplayRow";
 
 const BookList = () => {
   const { books } = useContext(DataContext);
@@ -120,7 +121,7 @@ const BookList = () => {
           <div className={styles.bookList}>
             {filteredBooks.map((book) => {
               return (
-                <DisplayCard book={book} key={book.id} />
+                <DisplayRow book={book} key={book.id} />
               )
             })}
           </div>
